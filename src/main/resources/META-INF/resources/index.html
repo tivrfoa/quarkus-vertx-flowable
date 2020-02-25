@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>vertx-quickstart - 1.0-SNAPSHOT</title>
+</head>
+<body>
+
+<div class="banner lead">
+    Your new Cloud-Native application is ready!
+</div>
+
+<div class="container">
+
+</div>
+
+<script>
+
+    const source = new EventSource("/queue");
+    source.onmessage = function(e) {
+        console.log('message received: ' + e);
+        if (e.data === "{}") {
+            return;
+        }
+        console.log(e);
+        const beverage = JSON.parse(e.data);
+        console.log(beverage);
+    };
+
+</script>
+
+</body>
+</html>
