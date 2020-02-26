@@ -96,7 +96,8 @@ public class GreetingResource {
         long start = System.nanoTime();
 
         vertx.setTimer(10, l -> {
-            long duration = TimeUnit.MILLISECONDS.convert(System.nanoTime() - start, TimeUnit.NANOSECONDS);
+            long duration = TimeUnit.MILLISECONDS.convert(
+                System.nanoTime() - start, TimeUnit.NANOSECONDS);
 
             String message = String.format("Hello %s! (%d ms)%n", name, duration);
 
